@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: app
+ labels:
+   app: e-comm-web
+spec:
+ replicas: 3
+ selector:
+  matchLabels:  
+   app: e-comm-web
+ template:
+  metadata:
+   labels:
+     app: e-comm-web
+
+  spec:
+   containers:
+    - name: e-comm-webapp
+      image: vinod0510/automation-djkt:latest
+      ports:
+       - containerPort: 80
